@@ -1,3 +1,4 @@
+// quiz/page.tsx - UPDATE
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -42,11 +43,14 @@ export default function QuizPage() {
     newAnswers[currentIndex] = value;
     setAnswers(newAnswers);
 
+    // Simpan ke localStorage
+    localStorage.setItem('quizAnswers', JSON.stringify(newAnswers));
+
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      const query = encodeURIComponent(JSON.stringify(newAnswers));
-      router.push(`/result?answers=${query}`);
+      // Redirect tanpa parameter URL yang berantakan
+      router.push("/result");
     }
   };
 
