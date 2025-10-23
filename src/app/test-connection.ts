@@ -1,5 +1,5 @@
 // test-connection.ts
-import { supabase } from '@/supabase/connection';
+import { supabase } from './lib/supabaseClient';
 
 export async function testSupabaseConnection() {
   console.log('🔗 Testing Supabase connection...');

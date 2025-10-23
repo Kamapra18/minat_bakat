@@ -2,7 +2,7 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { supabase } from "@/supabase/connection";
+import { supabase } from "../lib/supabaseClient";
 
 export default function ResultPage() {
   const params = useSearchParams();
@@ -197,7 +197,7 @@ export default function ResultPage() {
           {Object.entries(result.scores).map(([category, score]) => (
             <div key={category} className="flex justify-between items-center mb-2">
               <span className="capitalize text-gray-600">{category}:</span>
-              <span className="font-semibold">{score}</span>
+              <span className="font-semibold text-black">{score}</span>
             </div>
           ))}
         </div>
